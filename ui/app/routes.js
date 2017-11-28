@@ -6,7 +6,7 @@ module.exports = function(app) {
 	// route to handle all angular requests
 
 	app.get('/', function(req, res) {
-		return res.render('home', {});
+		return res.render('home', {title:"Ask VetBot a question"});
 	});
 
 };

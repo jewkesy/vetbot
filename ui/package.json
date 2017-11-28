@@ -22,6 +22,7 @@
     "express": "^4.16.2",
     "jade": "^1.11.0",
     "method-override": "^2.3.10",
-    "tracer": "^0.8.11"
+    "tracer": "^0.8.11",
+    "watson-developer-cloud": "^2.42.0"
   }
 }
