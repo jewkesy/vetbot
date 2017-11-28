@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/jewkesy/vetbot/issues"
   },
-  "homepage": "https://github.com/jewkesy/vetbot#readme"
+  "homepage": "https://github.com/jewkesy/vetbot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "jade": "^1.11.0",
+    "method-override": "^2.3.10",
+    "tracer": "^0.8.11"
+  }
 }
