@@ -27,12 +27,10 @@ function processResponse(err, response) {
 
   // Display the output from dialog, if any.
   if (response.output.text.length != 0) {
-
-  
-  for (var i=0; i<response.output.text.length; i++) {
-  	console.log(response.output.text[i]);
-  }
-}
+	  for (var i=0; i<response.output.text.length; i++) {
+	  	console.log(response.output.text[i]);
+	  }
+	}
   // Prompt for the next round of input.
     var newMessageFromUser = prompt('>> ', {});
     // Send back the context to maintain state.
