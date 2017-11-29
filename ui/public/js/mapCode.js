@@ -36,12 +36,13 @@ function loadInfo(l) {
 	  popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 	});
 
+
 	L.marker([l.lat, l.lon-0.01], {icon: greenCiv}).addTo(mymap)
-	  .bindPopup('<strong>Civilian</strong><br>' + l.type)
+	  .bindPopup('<strong>Civilian</strong><br>' + l.type + '<br>44%')
 	    // .openPopup();
 
 	L.marker([l.lat, l.lon+0.01], {icon: blueVet}).addTo(mymap)
-	  .bindPopup('<strong>Veteran</strong><br>' + l.type)
+	  .bindPopup('<strong>Veteran</strong><br>' + l.type + '<br>56%')
 	    // .openPopup();
 }
 
