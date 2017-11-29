@@ -1,4 +1,4 @@
- var mymap = L.map('mapid').setView([51.505, -0.09], 5);
+ var mymap = L.map('mapid').setView([53.369722, -3.865245], 4);
           
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
       maxZoom: 18,
@@ -12,10 +12,9 @@
         
 
 function gotoLoc(l) {
-
-	// map.panTo(new L.LatLng(40.737, -73.923));
-
-	map.panTo(new L.LatLng(l.lat, l.lon));
+	console.log(l)
+	// mymap.setView([l.lat, l.lng], l.zoom, { animate: true });
+	mymap.flyTo(new L.LatLng(l.lat, l.lon), l.zoom);
 }
 
 function loadContent(c) {

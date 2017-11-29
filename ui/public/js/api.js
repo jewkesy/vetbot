@@ -52,6 +52,10 @@ var Api = (function() {
           var d = data.entities[i];
           if (d.entity == 'sys-location') {
             console.log(d)
+            console.log('TODO: Zoom to ', d.value)
+            if (d.value.toLowerCase() == 'london') {
+              gotoLoc({lat: 51.505, lon: -0.09, zoom: 12});
+            } 
           }
           
         }
