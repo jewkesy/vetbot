@@ -36,6 +36,7 @@ function loadInfo(l) {
 	  popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 	});
 
+  if (!l.type) l.type = ""
 
 	L.marker([l.lat, l.lon-0.01], {icon: greenCiv}).addTo(mymap)
 	  .bindPopup('<strong>Civilian</strong><br>' + l.type + '<br>44%')
