@@ -54,7 +54,7 @@ var Api = (function() {
             console.log(d)
             console.log('TODO: Zoom to ', d.value)
             if (d.value.toLowerCase() == 'london') {
-              gotoLoc({lat: 51.505, lon: -0.09, zoom: 12});
+              gotoLoc({lat: 51.505, lon: -0.09, zoom: 12, type: 'education'});
             } 
           }
           

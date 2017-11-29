@@ -37,11 +37,11 @@ function loadInfo(l) {
 	});
 
 	L.marker([l.lat, l.lon-0.01], {icon: greenCiv}).addTo(mymap)
-	  .bindPopup('<strong>Title</strong><br>Description')
+	  .bindPopup('<strong>Civilian</strong><br>' + l.type)
 	    // .openPopup();
 
 	L.marker([l.lat, l.lon+0.01], {icon: blueVet}).addTo(mymap)
-	  .bindPopup('<strong>Title</strong><br>Description')
+	  .bindPopup('<strong>Veteran</strong><br>' + l.type)
 	    // .openPopup();
 }
 
