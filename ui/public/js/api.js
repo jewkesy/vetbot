@@ -45,6 +45,17 @@ var Api = (function() {
     http.onreadystatechange = function() {
       if (http.readyState === 4 && http.status === 200 && http.responseText) {
         Api.setResponsePayload(http.responseText);
+
+        var data = JSON.parse(http.responseText);
+        console.log(data)
+        for (var i = 0; i < data.entities.length; i++){
+          var d = data.entities[i];
+          if (d.entity == 'sys-location') {
+            console.log(d)
+          }
+          
+        }
+
       }
     };
 
