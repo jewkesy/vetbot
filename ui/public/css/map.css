@@ -1,11 +1,14 @@
 
 
 #bounds {
-  height: 100%;
-  width: 100%;
+  height: 400px !important;
+  width: 400px !important;
+  border: solid blue 1px;
 }
 
 #mapid { 
-  height: 900px; 
-  max-width: 100%;
+  height: 300px !important; 
+  width: 300px !important;
+  max-width:300px !important;
+  border: solid green 1px;
 }

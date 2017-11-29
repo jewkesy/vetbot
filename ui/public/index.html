@@ -9,15 +9,24 @@
   <meta property="og:description" content="Sample application that shows how to use the Conversation API to identify user intents" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+      integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+      crossorigin=""/>
 
-  <script src="js/leaflet.js"></script>
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+      <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+      integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+      crossorigin=""></script>
   <script src="js/common.js"></script>
 </head>
 <body>
-  <div id="view-change-button" class="button" onclick="PayloadPanel.togglePanel(event, this)">
+<!--   <div style="display:none;" id="view-change-button" class="button" onclick="PayloadPanel.togglePanel(event, this)">
     <img class="option full" src="../img/Chat Button.png">
     <img class="option not-full" src="../img/Code Button.png">
-  </div>
+  </div> -->
+
   <div id="contentParent" class="responsive-columns-wrapper">
     <div id="chat-column-holder" class="responsive-column content-column">
       <div class="chat-column">
@@ -29,9 +38,9 @@
         </label>
       </div>
     </div>
-    <div id="bounds" >
-        <div id="mapid"></div>
-      </div>
+<div id="bounds">
+    <div id="mapid"></div>
+  </div> 
     <div style="display:none;" id="payload-column" class="fixed-column content-column">
       <div id="payload-initial-message">
         Type something to see the output
@@ -40,11 +49,16 @@
       <div id="payload-response" class="payload"></div>
     </div>
   </div>
-
+  
   <script src="js/common.js"></script>
   <script src="js/api.js"></script>
   <script src="js/conversation.js"></script>
   <script src="js/payload.js"></script>
   <script src="js/global.js"></script>
+
+  <script src="js/mapCode.js"></script>
+
+
+
 </body>
 </html>
