@@ -4,6 +4,7 @@ var Api = (function() {
   var requestPayload;
   var responsePayload;
   var messageEndpoint = '/api/message';
+  var geoEndpoint = '/api/geo';
 
   // Publicly accessible methods defined
   return {
@@ -52,10 +53,23 @@ var Api = (function() {
           var d = data.entities[i];
           if (d.entity == 'sys-location') {
             console.log(d)
-            console.log('TODO: Zoom to ', d.value)
-            if (d.value.toLowerCase() == 'london') {
-              gotoLoc({lat: 51.505, lon: -0.09, zoom: 12, type: 'education'});
-            } 
+            
+            // Get the location as a latlong and set the map
+			var geoHttp = new XMLHttpRequest();
+            urlString = geoEndpoint + '?address=' + d.value;
+            geoHttp.open('GET', urlString, true);
+            geoHttp.setRequestHeader('Content-type', 'application/json');
+            geoHttp.onreadystatechange = function () {
+              if (geoHttp.readyState === 4 && geoHttp.status === 200 && geoHttp.responseText) {
+                console.log(geoHttp.responseText);
+                var locData = JSON.parse(geoHttp.responseText);
+                console.log(locData);
+                var latitude = locData.results[0].geometry.location.lat;
+                var longitude = locData.results[0].geometry.location.lng;
+                gotoLoc({lat: latitude, lon: longitude, zoom: 12});
+              }
+            }
+            geoHttp.send();
           }
           
         }

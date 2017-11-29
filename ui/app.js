@@ -20,6 +20,7 @@ var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
 var Conversation = require('watson-developer-cloud/conversation/v1'); // watson sdk
 var config = require('./../ui/config.js');
+var https = require('https');
 
 var app = express();
 
@@ -58,6 +59,40 @@ app.post('/api/message', function(req, res) {
       return res.status(err.code || 500).json(err);
     }
     return res.json(updateMessage(payload, data));
+  });
+});
+
+// Endpoint to be called from the client side
+app.get('/api/geo', function(req, res) {
+  var key = config.api.geoKey;
+  var address = req.query.address;
+  if (!key || !address) {
+    return res.json({
+      'output': {
+        'text': 'Geocache API key or address parameters were not defined.'
+      }
+    });
+  }
+  
+  var options = {
+    host: 'maps.googleapis.com',
+    port: 443,
+    path: '/maps/api/geocode/json?address=' + address + '&key=' + key,
+    method: 'GET',
+    headers: { 'Content-type': 'application/json' }
+  };
+  
+  var req = https.get(options, function(resp) {
+    var buffer = "",
+      data;
+    resp.on("data", function(chunk) {
+      buffer += chunk;
+    });
+    resp.on("end", function(err) {
+      data = JSON.parse(buffer);
+      console.log(data);
+      return res.json(data);
+    });
   });
 });
 
