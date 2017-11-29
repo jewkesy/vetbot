@@ -14,8 +14,44 @@
 function gotoLoc(l) {
 	console.log(l)
 	// mymap.setView([l.lat, l.lng], l.zoom, { animate: true });
-	mymap.flyTo(new L.LatLng(l.lat, l.lon), l.zoom);
+	mymap.flyTo(new L.LatLng(l.lat, l.lon), l.zoom, function() {
+
+	});
+	loadInfo(l);
 }
+
+
+function loadInfo(l) {
+	var greenCiv = L.icon({
+	  iconUrl: 'icons/civ_green.png',
+	  iconSize:     [45, 40], // size of the icon
+	  // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+	  popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+	});
+
+	var blueVet = L.icon({
+	  iconUrl: 'icons/vetran_blue.png',
+	  iconSize:     [35, 40], // size of the icon
+	  // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+	  popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+	});
+
+	L.marker([l.lat, l.lon-0.01], {icon: greenCiv}).addTo(mymap)
+	  .bindPopup('<strong>Title</strong><br>Description')
+	    // .openPopup();
+
+	L.marker([l.lat, l.lon+0.01], {icon: blueVet}).addTo(mymap)
+	  .bindPopup('<strong>Title</strong><br>Description')
+	    // .openPopup();
+}
+
+
+
+
+
+
+
+
 
 function loadContent(c) {
 	 var greenCiv = L.icon({
