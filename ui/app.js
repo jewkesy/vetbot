@@ -68,6 +68,7 @@ app.post('/api/message', function(req, res) {
  * @return {Object}          The response with the updated message
  */
 function updateMessage(input, response) {
+  console.log(response)
   var responseText = null;
   if (!response.output) {
     response.output = {};

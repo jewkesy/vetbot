@@ -1,7 +1,7 @@
 <html>
 <head>
   <base href="/">
-  <title>Conversation Chat App</title>
+  <title>Welcome to VetBot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta property="og:image" content="conversation.svg" />
@@ -9,6 +9,9 @@
   <meta property="og:description" content="Sample application that shows how to use the Conversation API to identify user intents" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/app.css">
+
+  <script src="js/leaflet.js"></script>
+  <script src="js/common.js"></script>
 </head>
 <body>
   <div id="view-change-button" class="button" onclick="PayloadPanel.togglePanel(event, this)">
@@ -26,7 +29,10 @@
         </label>
       </div>
     </div>
-    <div id="payload-column" class="fixed-column content-column">
+    <div id="bounds" >
+        <div id="mapid"></div>
+      </div>
+    <div style="display:none;" id="payload-column" class="fixed-column content-column">
       <div id="payload-initial-message">
         Type something to see the output
       </div>
