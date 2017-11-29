@@ -2,6 +2,7 @@ module.exports = {
 	api: {
 		workspaceId: "",
 		user: "",
-		password: ""
+		password: "",
+		geoKey: ""
 	}
 }
