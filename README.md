@@ -10,7 +10,7 @@ At this time VetBot is equipped with data on the quality of employment and healt
 * IBM Watson Conversation
   - N.B. Our Watson instance was calibrated on IBM's servers and is not exportable (contact the authors for more information)
 * A MongoDB database containing veterans data
-  - Examples of the data schema are shown in the JSON data file __*NSSEC by LA.json*__
+  - The data schema is *TBC*
 
 ### Local setup instructions:
 1. In the __*ui*__ folder perform an `npm install`
